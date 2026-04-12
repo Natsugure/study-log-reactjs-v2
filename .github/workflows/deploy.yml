@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  say_hello:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Hello World!"
+      - run: make deploy
