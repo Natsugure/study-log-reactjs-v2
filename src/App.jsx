@@ -53,7 +53,7 @@ function App() {
 
   return (
     <>
-      <h1>学習記録アプリ</h1>
+      <h1>学習記録あぷり</h1>
       <div>
         <div>
           学習内容
