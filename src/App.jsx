@@ -53,11 +53,12 @@ function App() {
 
   return (
     <>
-      <h1>学習記録あぷり</h1>
+      <h1 data-testid="title">学習記録アプリ</h1>
       <div>
         <div>
           学習内容
           <input
+            data-testid="study-detail-input"
             value={newStudyDetail}
             onChange={onChangeStudyDetailInput}
           ></input>
@@ -65,6 +66,7 @@ function App() {
         <div>
           学習時間
           <input
+            data-testid="study-hour-input"
             type="number"
             value={newStudyHour}
             onChange={onChangeStudyHourInput}
@@ -77,14 +79,14 @@ function App() {
         </div>
       </div>
       <div>
-        {isLoading ? (<p>読み込み中…</p>) : (
+        {isLoading ? (<p data-testid="loading-text">読み込み中…</p>) : (
         <ul>
           {records.map((item, id) => {
             return (
               <li key={id}>
                 <div>
                   {item.title} {item.time}時間
-                  <button onClick={() => onClickDelete(item.id)}>削除</button>
+                  <button data-testid="delete-button" onClick={() => onClickDelete(item.id)}>削除</button>
                 </div>
               </li>
             );
@@ -93,7 +95,7 @@ function App() {
         )}
         <div>
           <button onClick={onClickAdd}>登録</button>
-          {error && '入力されていない項目があります'}
+          {error && <span data-testid="error-message">'入力されていない項目があります'</span>}
         </div>
         <div>
           <p>合計時間 {totalTime} / 1000 (h)</p>
